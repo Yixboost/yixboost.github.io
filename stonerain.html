@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Top-Down Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        #gameCanvas {
+            border: 1px solid black;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #restartButton {
+            display: none;
+            position: absolute;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            background-color: orangered;
+            border-radius: 30px;
+            border: none;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 30px;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transform: translate(-50%, -50%);
+            margin-right: 20px;
+            color: #fff;
+            font-family: 'Pixelify Sans', sans-serif;
+            font-size: 30px;
+        }
+
+        #gameover {
+            display: none;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <button id="restartButton" onclick="restartGame()">Restart</button>
+    <p id="gameover">Game Over</p>
+    <p id="score">0</p>
+    <audio id="music" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <script>
+        var canvas = document.getElementById("gameCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        var context = canvas.getContext("2d");
+        var playerSize = 20;
+        var stoneSize = 20;
+        var playerX = canvas.width / 2 - playerSize / 2;
+        var playerY = canvas.height - playerSize;
+        var playerSpeed = 5;
+        var stones = [];
+        var keys = {};
+        var gameRunning = true;
+        var score = 0;
+
+        window.addEventListener("keydown", function (event) {
+            keys[event.key.toUpperCase()] = true;
+        });
+
+        window.addEventListener("keyup", function (event) {
+            keys[event.key.toUpperCase()] = false;
+        });
+
+        function checkCollision() {
+    for (var i = 0; i < stones.length; i++) {
+        var stone = stones[i];
+        if (
+            playerX < stone.x + stone.size &&
+            playerX + playerSize > stone.x &&
+            playerY < stone.y + stone.size &&
+            playerY + playerSize > stone.y
+        ) {
+            if (gameRunning) {
+                gameRunning = false;
+                document.getElementById("restartButton").style.display = "block";
+                document.getElementById("gameover").style.display = "block";
+                document.getElementById("score").style.fontSize = "60px";
+                document.getElementById("music").pause();
+                var deathSound = new Audio('death.mp3');
+                deathSound.play();
+                document.getElementById("restartButton").addEventListener("click", function() {
+                    document.getElementById("music").currentTime = 0;
+                    document.getElementById("music").play();
+                });
+            }
+            break;
+        }
+    }
+}
+
+        function restartGame() {
+            playerX = canvas.width / 2 - playerSize / 2;
+            playerY = canvas.height - playerSize;
+            stones = [];
+            score = 0;
+            gameRunning = true;
+            document.getElementById("restartButton").style.display = "none";
+            document.getElementById("gameover").style.display = "none";
+            document.getElementById("score").style.fontSize = "30px";;
+            update();
+        }
+
+        function update() {
+            if (!gameRunning) {
+                return;
+            }
+
+            score++;
+            document.getElementById("score").innerText = score;
+
+            if (playerX > 0 && keys["A"]) {
+                playerX -= playerSpeed;
+            }
+            if (playerX < canvas.width - playerSize && keys["D"]) {
+                playerX += playerSpeed;
+            }
+
+            playerY += 0;
+
+            if (playerY + playerSize >= canvas.height) {
+
+                if (stones.length < 10) {
+                    var randomX = Math.random() * (canvas.width - stoneSize);
+                    stones.push({
+                        x: randomX,
+                        y: 0,
+                        size: stoneSize,
+                        speed: 5
+                    });
+                }
+
+
+                playerY = canvas.height - playerSize;
+            }
+
+            var spaceshipImage = new Image();
+            spaceshipImage.src = "ruimteschip.png";
+
+            spaceshipImage.onload = function () {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                var offsetY = canvas.height - playerY - playerSize * -22;
+                context.drawImage(spaceshipImage, playerX, offsetY, playerSize * 3, playerSize * 3);
+            };
+
+
+
+            context.fillStyle = "transparent";
+            for (var i = 0; i < stones.length; i++) {
+                var stone = stones[i];
+                if (stone.y + stone.size > canvas.height) {
+                    stone.y = 0;
+                    stone.x = Math.random() * (canvas.width - stoneSize);
+                    stone.speed += 1;
+                }
+                stone.y += stone.speed;
+                context.fillRect(stone.x, stone.y, stone.size, stone.size);
+
+                var cometImage = new Image();
+                cometImage.src = "komeet.png";
+
+
+                context.drawImage(cometImage, stone.x, stone.y, 3 * stone.size, 3 * stone.size);
+            }
+
+            checkCollision();
+
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+
+
+</body>
+
+</html>
