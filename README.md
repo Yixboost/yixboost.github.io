@@ -1,3 +1,5 @@
+![channels4_banner](https://github.com/user-attachments/assets/8d77076e-0dfb-43bd-b82a-ed4d6ca6c3ff)
+
 # Yixboost Website 🌐
 
 Welcome to the **Yixboost** website! This site serves as a central hub for all projects and information related to Yixboost. Here, you will find details about our projects, documentation, and more!
