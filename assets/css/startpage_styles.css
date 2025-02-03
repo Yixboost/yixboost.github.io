@@ -348,6 +348,12 @@ footer {
     position: relative;
 }
 
+.ipr-container {
+    border: none !important;
+    background-color: #0a0a0f !important;
+    color: #fff !important;
+}
+
 @media (max-width: 768px) {
 
     .games-content,
