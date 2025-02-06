@@ -112,9 +112,29 @@ html {
 }
 
 .social-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.2), rgba(0, 255, 255, 0.2));
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    animation: borderAnimation 1s infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: rgba(0, 123, 255, 0.3);
+    }
+    25% {
+        border-color: rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        border-color: rgba(0, 255, 255, 0.5);
+    }
+    75% {
+        border-color: rgba(0, 255, 255, 0.3);
+    }
+    100% {
+        border-color: rgba(0, 123, 255, 0.3);
+    }
 }
 
 /* Games Section */
