@@ -20,9 +20,20 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 
+/**
+ * Haalt URL-parameters op
+ */
+function getQueryParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  handleSubmission();
+});
 
+async function handleSubmission() {
   try {
     await registerSW();
   } catch (err) {
@@ -33,4 +44,17 @@ form.addEventListener("submit", async (event) => {
 
   const url = search(address.value, searchEngine.value);
   location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+}
+
+// Check of er parameters zijn in de URL en verwerk ze
+window.addEventListener("DOMContentLoaded", () => {
+  const smParam = getQueryParam("sm");
+  const qParam = getQueryParam("q");
+
+  if (smParam) searchEngine.value = smParam;
+  if (qParam) address.value = qParam;
+
+  if (smParam || qParam) {
+    handleSubmission();
+  }
 });
