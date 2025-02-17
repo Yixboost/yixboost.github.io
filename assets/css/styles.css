@@ -139,11 +139,10 @@ html {
 
 /* Games Section */
 .games-section {
-    min-height: 100vh;
     background: #0f0f1a;
     position: relative;
     overflow: hidden;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
 }
 
 .games-section::before {
@@ -154,8 +153,8 @@ html {
     width: 100%;
     height: 100%;
     background:
-        linear-gradient(45deg, rgba(255, 0, 128, 0.1) 0%, transparent 70%),
-        radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+        linear-gradient(45deg, rgba(45, 59, 255, 0.1) 0%, transparent 70%),
+        radial-gradient(circle at bottom right, rgba(123, 45, 255, 0.1) 0%, transparent 70%);
     animation: gamePulse 8s ease infinite alternate;
 }
 
@@ -171,7 +170,7 @@ html {
 
 .games-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -181,26 +180,27 @@ html {
 
 .games-image {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(255, 0, 34, 0.2);
+    box-shadow: 0 20px 40px rgba(45, 59, 255, 0.2);
     transform: perspective(1000px) rotateY(-15deg);
     transition: all 0.5s ease;
+    margin-bottom: 0;
 }
 
 .games-image:hover {
     transform: perspective(1000px) rotateY(0deg) translateY(-10px);
-    box-shadow: 0 30px 60px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 30px 60px rgba(45, 59, 255, 0.3);
 }
 
 /* WinGPT Section */
 .wingpt-section {
-    min-height: 100vh;
     background: #0a192f;
     position: relative;
     overflow: hidden;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
+    margin-top: 0;
 }
 
 .wingpt-section::before {
@@ -217,7 +217,7 @@ html {
 
 .wingpt-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -232,11 +232,12 @@ html {
 
 .wingpt-image {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(45, 59, 255, 0.2);
     animation: floatAnimation 6s ease-in-out infinite;
+    margin-bottom: 0;
 }
 
 @keyframes floatAnimation {
@@ -253,11 +254,11 @@ html {
 
 /* PyCraft Section */
 .pycraft-section {
-    min-height: 100vh;
     background: #0a0e14;
     position: relative;
     overflow: hidden;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
+    margin-top: 0;
 }
 
 .pycraft-section::before {
@@ -281,7 +282,7 @@ html {
 
 .pycraft-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -291,12 +292,13 @@ html {
 
 .pycraft-image {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 128, 0, 0.2);
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%);
     transition: all 0.5s ease;
+    margin-bottom: 0;
 }
 
 .pycraft-image:hover {
@@ -311,7 +313,7 @@ html {
 }
 
 .games-section .section-title {
-    background: linear-gradient(45deg, #ff002b, #ff4d00);
+    background: linear-gradient(45deg, #2d3bff, #7b2dff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -346,9 +348,9 @@ html {
 }
 
 .games-section .cta-button {
-    background: linear-gradient(45deg, #ff0015, #ff6200);
+    background: linear-gradient(45deg, #2d3bff, #7b2dff);
     color: white;
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(45, 59, 255, 0.3);
 }
 
 .wingpt-section .cta-button {
@@ -400,7 +402,7 @@ footer {
 /* Authors Section */
 .authors-section {
     background: #1a0f1f;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     position: relative;
     background:
         radial-gradient(circle at 50% 50%, rgba(45, 59, 255, 0.1) 0%, transparent 50%),
@@ -417,7 +419,7 @@ footer {
 
 .authors-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
     text-align: center;
 }
 
@@ -552,7 +554,7 @@ footer {
     bottom: 40px;
     right: -80px;
     border-radius: 100%;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  hsla(258, 48%, 43%, 0.9) 0%, hsla(234, 63%, 36%, 0.9) 81.3% );
     color: #fff;
     font-size: 44px;
     font-weight: bold;
