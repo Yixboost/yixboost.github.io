@@ -12,6 +12,14 @@ body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: 'Minecraft';
+    src: url('/assets/webfonts/minecraft.woff2') format('woff2'),
+    url('/assets/webfonts/minecraft.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     scroll-behavior: smooth;
   }
@@ -156,6 +164,7 @@ html {
         linear-gradient(45deg, rgba(45, 59, 255, 0.1) 0%, transparent 70%),
         radial-gradient(circle at bottom right, rgba(123, 45, 255, 0.1) 0%, transparent 70%);
     animation: gamePulse 8s ease infinite alternate;
+    background-image: url("/assets/images/games-bg.jpg");
 }
 
 @keyframes gamePulse {
@@ -254,11 +263,11 @@ html {
 
 /* PyCraft Section */
 .pycraft-section {
-    background: #0a0e14;
+    min-height: 60vh;
+    background: #1a0f1f;
     position: relative;
     overflow: hidden;
-    padding: 2rem 2rem;
-    margin-top: 0;
+    padding: 4rem 2rem;
 }
 
 .pycraft-section::before {
@@ -268,21 +277,12 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #507B32;
-    background-image: 
-        linear-gradient(45deg, rgba(63, 97, 31, 0.8) 25%, transparent 25%),
-        linear-gradient(135deg, rgba(63, 97, 31, 0.8) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(63, 97, 31, 0.8) 75%),
-        linear-gradient(135deg, transparent 75%, rgba(63, 97, 31, 0.8) 75%),
-        url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%233F611F' fill-opacity='0.2'/%3E%3C/svg%3E");
-    background-size: 24px 24px, 24px 24px, 24px 24px, 24px 24px, 12px 12px;
-    background-position: 0 0, 12px 0, 12px -12px, 0 12px, 0 0;
-    opacity: 0.9;
+    background-image: url(/assets/images/minecraft-pattern.png);
 }
 
 .pycraft-content {
     max-width: 1200px;
-    margin: 1rem auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -292,18 +292,27 @@ html {
 
 .pycraft-image {
     width: 100%;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 128, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(123, 45, 255, 0.2);
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%);
     transition: all 0.5s ease;
-    margin-bottom: 0;
+    box-shadow: 4px 4px 0px #222 !important;
+    border: 4px solid #000;
+    border-radius: 0px !important;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    background: url(images/minecraft-btn.png) center / cover;
+    user-select: none;
 }
 
 .pycraft-image:hover {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     transform: scale(1.05);
+    box-shadow: 5px 5px 0px #444;
+    background-color: #bbb;
 }
 
 .section-title {
@@ -313,7 +322,7 @@ html {
 }
 
 .games-section .section-title {
-    background: linear-gradient(45deg, #2d3bff, #7b2dff);
+    background: #ffffff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -360,10 +369,34 @@ html {
 }
 
 .pycraft-section .cta-button {
-    background: linear-gradient(45deg, #7b2dff, #ff00ff);
-    color: white;
-    box-shadow: 0 5px 15px rgba(123, 45, 255, 0.3);
+    background: url(/assets/images/minecraft-btn.png) center / cover;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+    image-rendering: pixelated;
+    border: 4px solid #000;
+    border-radius: 0px;
+    padding: 0.5rem 3rem;
+    color: #fff !important;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #222;
+    transition: all 0.1s ease-in-out;
 }
+
+.pycraft-section .cta-button:hover {
+    background-color: #bbb;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px #444;
+}
+
+.pycraft-section .cta-button:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
 
 .cta-button:hover {
     transform: translateY(-2px);
