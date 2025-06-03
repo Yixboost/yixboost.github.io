@@ -8,7 +8,7 @@ Our documentation provides detailed information about each project and how to ge
 [Visit HERE](https://yixboost.dev/documentation)
 
 ## Contact 📬
-Do you have questions or suggestions? Feel free to reach out via yixboost@mail.com.
+Do you have questions or suggestions? Feel free to reach out via support@yixboost.dev.
 
 ---
 
