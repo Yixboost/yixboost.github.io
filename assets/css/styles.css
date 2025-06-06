@@ -45,22 +45,8 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background:
-        radial-gradient(circle at 20% 50%, rgba(45, 59, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(123, 45, 255, 0.15) 0%, transparent 50%);
-    animation: pulseBackground 10s ease infinite alternate;
     background-image: url(/assets/images/header-bg.jpg);
     background-size: cover;
-}
-
-@keyframes pulseBackground {
-    0% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1.1);
-    }
 }
 
 .logo {
@@ -143,6 +129,52 @@ html {
     100% {
         border-color: rgba(0, 123, 255, 0.3);
     }
+}
+
+/* Website making Section */
+.websitemaker-section {
+    background: #23564c;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 2rem;
+    margin-top: 0;
+}
+
+.websitemaker-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d3bff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+.websitemaker-content {
+    max-width: 1200px;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    direction: rtl;
+}
+
+.websitemaker-text {
+    direction: ltr;
+}
+
+.websitemaker-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(45, 59, 255, 0.2);
+    animation: floatAnimation 6s ease-in-out infinite;
+    margin-bottom: 0;
 }
 
 /* Games Section */
@@ -356,6 +388,12 @@ html {
     overflow: hidden;
 }
 
+.websitemaker-section .cta-button {
+    background: linear-gradient(45deg, #2c8ba3, #1d937c);
+    color: white;
+    box-shadow: 0 5px 15px rgba(15, 161, 166, 0.3);
+}
+
 .games-section .cta-button {
     background: linear-gradient(45deg, #2d3bff, #7b2dff);
     color: white;
@@ -365,7 +403,7 @@ html {
 .wingpt-section .cta-button {
     background: linear-gradient(45deg, #2d3bff, #00ffff);
     color: white;
-    box-shadow: 0 5px 15px rgba(45, 59, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(45, 255, 188, 0.3);
 }
 
 .pycraft-section .cta-button {
@@ -414,21 +452,26 @@ footer {
 
     .games-content,
     .wingpt-content,
-    .pycraft-content {
+    .pycraft-content,
+    .websitemaker-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .wingpt-content {
+    .wingpt-content, .websitemaker-content {
         direction: ltr;
     }
 
-    .logo {
-        font-size: 3rem;
+    .logo img {
+        max-height: 100px;
     }
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .social-links {
+        display: none;
     }
 }
 
@@ -527,9 +570,9 @@ footer {
 
 .footer-grid {
     display: flex;
-    justify-content: space-between; /* Plaats elementen uit elkaar */
-    align-items: flex-start; /* Zorg ervoor dat ze aan de bovenkant uitgelijnd zijn */
-    flex-wrap: wrap; /* Maak het responsief */
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
     margin-bottom: 2rem;
 }
 
@@ -617,4 +660,174 @@ footer {
     right: 30px;
     transition: all 400ms;
     transform: rotate(360deg)
+  }
+
+  .navbar {
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+  }
+
+  .back-button {
+      font-size: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      margin-right: 1rem;
+  }
+
+  .back-button:hover {
+      color: #2d3bff;
+  }
+
+  .navbar-title {
+      flex-grow: 1;
+      font-size: 1.25rem;
+      font-weight: bold;
+  }
+
+  .info-section {
+      width: 100%;
+      background: white;
+      color: #111;
+      padding: 4rem 2rem;
+  }
+
+  .info-content {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .info-content h2 {
+      text-align: center;
+  }
+
+  .tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+      .tiles {
+          grid-template-columns: repeat(3, 1fr);
+      }
+  }
+
+
+  .tile {
+      background: #f3f3f3;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+  }
+
+  .tile:hover {
+      transform: translateY(-5px);
+  }
+
+  .tile h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+  }
+
+  .tile p {
+      margin: 0.5rem 0 0;
+      line-height: 1.6;
+  }
+
+  .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+  }
+
+  .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #000;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .contact-btn:hover {
+      background-color: #222;
+  }
+
+  .info-extra {
+      margin-top: 2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  /* Portfolio Section */
+  .portfolio-section {
+      background: #f7f9fc;
+      padding: 4rem 2rem;
+      text-align: center;
+  }
+
+  .portfolio-section h2 {
+      font-size: 2.25rem;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+      color: #222;
+  }
+
+  .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .portfolio-grid a {
+      display: block;
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-decoration: none;
+      color: #222;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .portfolio-grid a:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .portfolio-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+  }
+
+  .portfolio-grid p {
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0;
   }
