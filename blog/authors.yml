@@ -1,25 +1,18 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
+jonasvanleeuwen19:
+  name: Jonas van Leeuwen
+  title: Yixboost Developer, Co-founder Yixboost NL
+  url: https://jonas.yixboost.dev
+  image_url: https://github.com/jonasvanleeuwen19.png
   page: true
   socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
+    github: jonasvanleeuwen19
+    newsletter: https://jonas.yixboost.dev
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+valdtaniem:
+  name: Valdtaniem
+  title: Yixboost Developer, Co-founder Yixboost NL
+  url: https://valdtaniem.yixboost.dev
+  image_url: https://github.com/valdtaniem.png
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    github: valdtaniem
+    newsletter: https://valdtaniem.yixboost.dev

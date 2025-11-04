@@ -1,19 +1,19 @@
 facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+  label: Yixboost Games
+  permalink: /yixboost-games
+  description: Our free online games website
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+ctf:
+  label: CTF
+  permalink: /ctf
+  description: Post's about Capture the Flag (CTF) events
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+hardware:
+  label: Hardware
+  permalink: /hardware
+  description: Post's about hardware
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+software:
+  label: Software
+  permalink: /software
+  description: Post's about software
